@@ -37,9 +37,6 @@ public class ConvertirMonedas {
         }
         String baseCode = jsonResponse.get("base_code").getAsString();
 
-        if (baseCode.equals("USD")) {
-            baseCode = "dolar";
-        }
         Map<String, Double> rates = new Gson().fromJson(jsonResponse.get("conversion_rates"), Map.class);
         return new ApiMoneda(baseCode, rates);
     }
